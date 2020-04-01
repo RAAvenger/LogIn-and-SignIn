@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*mobile*/
+.contaner {
+    width: 100%;
+    position: absolute;
+    min-height: 100vh;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    height: 5rem;
+    width: 100%;
+    background-color: darkgray;
+}
+
+.form {
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    margin: 5.5rem auto;
+    max-width: 300px;
+    border: 2px solid black;
+    border-radius: 10px 10px 10px 10px;
+    background-color: aquamarine;
+}
+
+.form .input-box {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 8px;
+}
+
+.form .input-box input {
+    margin: 0;
+    width: 100%;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.form .input-box p {
+    margin: 0 0 2px 0;
+    width: 110px;
+}
+
+.form .button {
+    width: 70%;
+    height: 30px;
+    margin: 5px auto;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 5rem;
+    width: 100%;
+    background-color: darkgray;
+}
+
+/*tablet*/
+@media screen and (min-width: 480px) {
+    .form {
+        max-width: 500px;
+        background-color: blue;
+    }
+
+    .form .input-box input {
+        width: 0;
+        flex-grow: 1;
+    }
+}
+
+/*desktop*/
+@media screen and (min-width: 760px) {
+    .form {
+        position: absolute;
+        margin-inline: 0;
+        right: 0;
+        max-width: 600px;
+        background-color: blueviolet;
+    }
+    .form .input-box {
+        width: 40%;
+    }
+}
