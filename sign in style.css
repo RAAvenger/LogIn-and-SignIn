@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-size: 1em;
 }
 
 /*mobile*/
@@ -15,44 +16,77 @@ header {
     top: 0;
     height: 5rem;
     width: 100%;
-    background-color: darkgray;
+    background: black;
+    text-align: center;
+    color: gold;
+    font-size: 1.6em;
+    border-bottom: 4px solid;
+    border-image-source: radial-gradient(black, gold);
+    border-image-slice: 1;
 }
 
 .form {
+    background: white;
     display: flex;
     padding: 5px;
     flex-wrap: wrap;
-    margin: 5.5rem auto;
+    margin: 5.6rem auto;
     max-width: 300px;
-    border: 2px solid black;
     border-radius: 10px 10px 10px 10px;
-    background-color: aquamarine;
+    box-shadow: 0px 0px 6px 1px rgba(93, 1, 121, 1);
 }
 
-.form .input-box {
+.form .title {
+    margin: 10px auto;
+    font-size: 2em;
+}
+
+.explanations {
+    margin: 2px 15px 0px 15px;
+    padding: 5px;
+    box-shadow: 0px 0px 2px 1px rgb(159, 91, 236);
+    background-color: rgba(154, 244, 250, 0.3);
+    border-radius: 10px;
+    text-align: justify;
+}
+
+.input-box {
     display: flex;
     margin: auto;
     width: 100%;
     flex-wrap: wrap;
-    padding: 8px;
+    padding: 8px 8px 0px 8px;
 }
 
-.form .input-box input {
+.input-box input {
     margin: 0;
     width: 100%;
-    padding: 2px;
+    padding: 3px;
     border-radius: 5px;
+    border-color: rgb(198, 235, 223);
 }
 
-.form .input-box p {
+.input-box p {
     margin: 0 0 2px 0;
     width: 110px;
 }
 
-.form .button {
+.button {
     width: 70%;
     height: 30px;
-    margin: 5px auto;
+    margin: 10px auto;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(243, 54, 117);
+    color: rgb(73, 4, 90);
+}
+
+.button:hover {
+    box-shadow: 0 0 3px 1px black;
+}
+
+.button:active {
+    background-color: rgb(185, 47, 93);
 }
 
 footer {
@@ -60,17 +94,46 @@ footer {
     bottom: 0;
     height: 5rem;
     width: 100%;
-    background-color: darkgray;
+    background: black;
+    text-align: center;
+    color: gold;
+    font-size: 1.2em;
+    border-top: 4px solid;
+    border-image-source: radial-gradient(black, gold);
+    border-image-slice: 1;
+}
+
+footer a:link {
+    text-decoration: none;
+    color: red;
+}
+
+footer a:hover {
+    color: hotpink;
 }
 
 /*tablet*/
 @media screen and (min-width: 480px) {
     .form {
         max-width: 500px;
-        background-color: blue;
     }
 
-    .form .input-box input {
+    .explanations {
+        padding: 2px 15px 0px 15px;
+        box-shadow: none;
+        margin-inline: auto;
+        background-color: inherit;
+        max-width: 100%;
+    }
+
+    .explanations p {
+        padding: 5px;
+        box-shadow: 0px 0px 2px 1px rgb(159, 91, 236);
+        background-color: rgba(154, 244, 250, 0.3);
+        border-radius: 10px;
+    }
+
+    .input-box input {
         width: 0;
         flex-grow: 1;
     }
@@ -79,13 +142,16 @@ footer {
 /*desktop*/
 @media screen and (min-width: 760px) {
     .form {
-        position: absolute;
-        margin-inline: 0;
-        right: 0;
+        margin-right: 5px;
         max-width: 600px;
-        background-color: blueviolet;
     }
-    .form .input-box {
-        width: 40%;
+
+    .button {
+        width: 45%;
+        margin-right: 30px;
+    }
+
+    .input-box {
+        padding-inline: 30px;
     }
 }
