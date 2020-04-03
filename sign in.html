@@ -2,86 +2,91 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="sign in style.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="sign in style.css">
+    <script src="logInScript.js"></script>
+    <title>Sign in</title>
 </head>
 
 <body class="contaner">
-  <header>
-    <h1>Hi</h1>
-    <h2>welcome</h2>
-  </header>
-  <form title="sign in" action="" class="form">
-    <div class="title">
-      <P>
-        title
-      </P>
-    </div>
-    <div class="explanations">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-    <div class="input-box">
-      <p>First Name:</p>
-      <input type="text" name="firstName" id="firstName">
-    </div>
-    <div class="input-box">
-      <p>Last Name:</p>
-      <input type="text" name="lastName" id="lastName">
-    </div>
-    <div class="input-box">
-      <p>Phone Number:</p>
-      <input type="tel" name="phoneNumber" id="phoneNumber">
-    </div>
-    <div class="input-box">
-      <p>Usermame:</p>
-      <input type="username" name="username" id="username">
-    </div>
-    <div class="explanations">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </p>
-    </div>
-    <div class="input-box">
-      <p>Password:</p>
-      <input type="password" name="password" id="password">
-    </div>
-    <div class="explanations">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </p>
-    </div>
-    <div class="input-box">
-      <p>Password repit:</p>
-      <input type="password" name="passwordRep" id="passwordRep">
-    </div>
-    <div class="explanations">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </p>
-    </div>
-    <div class="input-box">
-      <p>Emale:</p>
-      <input type="email" name="emale" id="emale">
-    </div>
-    <div class="input-box">
-      <p>Day of Birth:</p>
-      <input type="date" name="birthDay" id="birthDay">
-    </div>
-    <input type="submit" value="submit" class="button">
-  </form>
-  <footer>
-    <p>goodbye</p>
-    <a href="http://Loremipsumdolor.sit">contact us</a></br>
-  </footer>
+    <header>
+        <h1>Hi</h1>
+        <h2>welcome</h2>
+    </header>
+    <form title="sign in" id="formSignIn" action="addNewUser.php" method="post" class="form">
+        <div class="title">
+            <P>
+                title
+            </P>
+        </div>
+        <div class="explanations">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                laborum.
+            </p>
+        </div>
+        <div class="input-box">
+            <p>First Name:</p>
+            <input type="text" name="firstName" id="firstName" maxlength="40" required>
+        </div>
+        <div class="input-box">
+            <p>Last Name:</p>
+            <input type="text" name="lastName" id="lastName" maxlength="60" required>
+        </div>
+        <div class="input-box">
+            <p>Phone Number:</p>
+            <input type="tel" name="phoneNumber" id="phoneNumber" required>
+        </div>
+        <div class="input-box">
+            <p>Usermame:</p>
+            <input type="username" name="username" id="username" required>
+        </div>
+        <div class="explanations">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+        <div class="input-box">
+            <p>Password:</p>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div class="explanations">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+        <div class="input-box">
+            <p>Password confirmation:</p>
+            <input type="password" name="passwordRep" id="passwordRep" required>
+        </div>
+        <div class="explanations">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+        <div class="input-box">
+            <p>Emale:</p>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div class="input-box">
+            <p>Day of Birth:</p>
+            <input type="date" name="birthDay" id="birthDay" required>
+        </div>
+        <button class="button" onclick="return formValidate('formSignIn')">submit</button>
+    </form>
+    <footer>
+        <p>goodbye</p>
+        <a href="http://Loremipsumdolor.sit">contact us</a>
+        <p id="jsResp"></p>
+    </footer>
 </body>
 
 </html>

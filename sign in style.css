@@ -133,6 +133,10 @@ footer a:hover {
         border-radius: 10px;
     }
 
+    .input-box p {
+        width: 155px;
+    }
+
     .input-box input {
         width: 0;
         flex-grow: 1;
@@ -146,12 +150,17 @@ footer a:hover {
         max-width: 600px;
     }
 
-    .button {
-        width: 45%;
-        margin-right: 30px;
+    .input-box p {
+        width: 165px;
     }
 
     .input-box {
         padding-inline: 30px;
     }
+
+    .button {
+        width: 45%;
+        margin-right: 30px;
+    }
+
 }
