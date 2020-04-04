@@ -71,16 +71,6 @@ header {
     border-bottom-color: rgb(136, 160, 152);
 }
 
-/* .input-box input:invalid {
-    box-shadow: none;
-    border-bottom-color: rgb(241, 54, 54);
-}
-
-.input-box input:invalid:focus {
-    box-shadow: none;
-    border-bottom-color: rgb(145, 35, 35);
-} */
-
 .input-box p {
     margin: 0 0 2px 0;
     width: 110px;

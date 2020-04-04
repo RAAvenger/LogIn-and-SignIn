@@ -6,13 +6,22 @@ include_once('database.php');
 $conn = ConnectionOpen($databaseServer, $databaseUsername, $databasePassword);
 $resp = AddNewUser(
     $conn,
-    $_REQUEST["username"],
-    $_REQUEST["password"],
-    $_REQUEST["firstName"],
-    $_REQUEST["lastName"],
-    $_REQUEST["phoneNumber"],
-    $_REQUEST["email"],
-    $_REQUEST["birthDay"]
+    test_input($_POST["username"]),
+    password_hash(test_input($_POST["password"]), PASSWORD_ARGON2I),
+    test_input($_POST["firstName"]),
+    test_input($_POST["lastName"]),
+    test_input($_POST["phoneNumber"]),
+    test_input($_POST["email"]),
+    test_input($_POST["birthDay"])
 );
 echo ("$resp");
+$sql = "select * from loginproj.users";
+$users = $conn->query($sql);
+while ($row = $users->fetch_assoc()) {
+    $pass = $row['password'];
+    if (password_verify(test_input($_POST["password"]), $row["password"]))
+        echo ("</br>true: $pass");
+    else
+        echo ("</br>false: $pass");
+}
 ConnectionClose($conn);

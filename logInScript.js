@@ -44,3 +44,7 @@ function PasswordShow_Hide(button, idInput) {
         button.alt = "show"
     }
 }
+
+function SetDateInputMax(inputID) {
+    document.getElementById(inputID).max = new Date().toISOString().split("T")[0];
+}

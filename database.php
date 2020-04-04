@@ -23,3 +23,10 @@ function AddNewUser($conn, $username, $password, $firstName, $lastName, $phoneNu
     else
         return $sql . " " . $conn->error;
 }
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
