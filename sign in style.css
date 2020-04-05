@@ -4,6 +4,10 @@
     font-size: 1em;
 }
 
+body {
+    background-color: rgb(41, 41, 41);
+}
+
 /*mobile*/
 .contaner {
     width: 100%;
@@ -18,22 +22,22 @@ header {
     width: 100%;
     background: black;
     text-align: center;
-    color: gold;
+    color: rgb(255, 255, 255);
     font-size: 1.6em;
     border-bottom: 4px solid;
-    border-image-source: radial-gradient(black, gold);
+    border-image-source: radial-gradient(rgb(255, 255, 255), black);
     border-image-slice: 1;
 }
 
 .form {
-    background: white;
+    background: rgb(99, 99, 99);
     display: flex;
     padding: 5px;
     flex-wrap: wrap;
     margin: 5.6rem auto;
     max-width: 300px;
     border-radius: 10px 10px 10px 10px;
-    box-shadow: 0px 0px 6px 1px rgba(93, 1, 121, 1);
+    box-shadow: 0px 0px 6px 1px rgb(110, 110, 110);
 }
 
 .form .title {
@@ -44,8 +48,8 @@ header {
 .explanations {
     margin: 2px 15px 0px 15px;
     padding: 5px;
-    box-shadow: 0px 0px 2px 1px rgb(159, 91, 236);
-    background-color: rgba(154, 244, 250, 0.3);
+    box-shadow: 0px 0px 2px 1px rgb(146, 146, 146);
+    background-color: rgb(128, 128, 128);
     border-radius: 10px;
     text-align: justify;
 }
@@ -59,12 +63,14 @@ header {
 }
 
 .input-box input {
+    background-color: rgb(65, 65, 65);
     margin: 0;
     width: 100%;
-    padding: 3px;
+    padding: 3px 7px;
     border: none;
     border-bottom: 3px solid rgb(198, 235, 223);
     border-radius: 10px;
+    color: white;
 }
 
 .input-box input:focus {
@@ -82,8 +88,7 @@ header {
     margin: 10px auto;
     border: none;
     border-radius: 10px;
-    background-color: rgb(243, 54, 117);
-    color: rgb(73, 4, 90);
+    background-color: rgb(159, 236, 255);
 }
 
 .button:hover {
@@ -91,7 +96,7 @@ header {
 }
 
 .button:active {
-    background-color: rgb(185, 47, 93);
+    background-color: rgb(107, 225, 255);
 }
 
 footer {
@@ -101,20 +106,20 @@ footer {
     width: 100%;
     background: black;
     text-align: center;
-    color: gold;
+    color: rgb(255, 255, 255);
     font-size: 1.2em;
     border-top: 4px solid;
-    border-image-source: radial-gradient(black, gold);
+    border-image-source: radial-gradient(rgb(255, 255, 255), black);
     border-image-slice: 1;
 }
 
 footer a:link {
     text-decoration: none;
-    color: red;
+    color: rgb(253, 235, 152);
 }
 
 footer a:hover {
-    color: hotpink;
+    color: rgb(190, 169, 72);
 }
 
 /*tablet*/
@@ -133,8 +138,8 @@ footer a:hover {
 
     .explanations p {
         padding: 5px;
-        box-shadow: 0px 0px 2px 1px rgb(159, 91, 236);
-        background-color: rgba(154, 244, 250, 0.3);
+        box-shadow: 0px 0px 2px 1px rgb(124, 124, 124);
+        background-color: rgb(128, 128, 128);
         border-radius: 10px;
     }
 

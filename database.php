@@ -24,9 +24,49 @@ function AddNewUser($conn, $username, $password, $firstName, $lastName, $phoneNu
         return $sql . " " . $conn->error;
 }
 
-function test_input($data) {
+function test_input($data)
+{
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-  }
+}
+
+function NewUserAlreadyExists($conn, $username, $phoneNumber, $email)
+{
+    try {
+        $t = 1 / 0;
+        $sql = "SELECT EXISTS(
+                SELECT *
+                FROM loginproj.users
+                WHERE (users.username = '$username')
+            ) AS 'result'";
+        $result = $conn->query($sql);
+        if ($result->fetch_assoc()['result'] == 1) {
+            return -2;
+        }
+        $sql = "SELECT EXISTS(
+                SELECT *
+                FROM loginproj.users
+                WHERE (users.phoneNumber = '$phoneNumber')
+            ) AS 'result'";
+        $result = $conn->query($sql);
+        if ($result->fetch_assoc()['result'] == 1) {
+            return -3;
+        }
+        $sql = "SELECT EXISTS(
+                SELECT *
+                FROM loginproj.users
+                WHERE (users.email = '$email')
+            ) AS 'result'";
+        $result = $conn->query($sql);
+        if ($result->fetch_assoc()['result'] == 1) {
+            return -4;
+        }
+    } catch (\Throwable $th) {
+        return -1;
+    } catch (\Exception $e) {
+        return -1;
+    }
+    return 1;
+}

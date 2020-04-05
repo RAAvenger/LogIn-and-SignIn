@@ -52,10 +52,6 @@
             </p>
         </div>
         <div class="input-box">
-            <p>Phone Number:</p>
-            <input type="tel" name="phoneNumber" id="phoneNumber" maxlength="12" required>
-        </div>
-        <div class="input-box">
             <p>Usermame:</p>
             <input type="username" name="username" id="username" pattern="\w{5,}$" maxlength="25" required>
         </div>
@@ -67,8 +63,8 @@
         <div class="input-box">
             <p>Password:</p>
             <input type="password" name="password" id="password" pattern="\w{8,}$" maxlength="30" required>
-            <img src="/images/Eye_48px.png" onclick="PasswordShow_Hide(this,'password')" alt="show" width="25px"
-                margin="auto">
+            <img src="images/Eye_48px.png" onclick="PasswordShow_Hide(this,'password')" alt="show"
+                style="height: 19px; width: 22px; margin: auto; padding:3px">
         </div>
         <div class="explanations">
             <p>
@@ -78,13 +74,17 @@
         <div class="input-box">
             <p>Password confirmation:</p>
             <input type="password" name="passwordRep" id="passwordRep" pattern="\w{8,}$" maxlength="30" required>
-            <img src="/images/Eye_48px.png" onclick="PasswordShow_Hide(this,'passwordRep')" alt="show" width="25px"
-                margin="auto">
+            <img src="images/Eye_48px.png" onclick="PasswordShow_Hide(this,'passwordRep')" alt="show"
+                style="height: 19px; width: 22px; margin: auto; padding:0 3px">
         </div>
         <div class="explanations">
             <p>
                 Please input your password again.
             </p>
+        </div>
+        <div class="input-box">
+            <p>Phone Number:</p>
+            <input type="tel" name="phoneNumber" id="phoneNumber" maxlength="12" required>
         </div>
         <div class="input-box">
             <p>Emale:</p>
