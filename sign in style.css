@@ -47,7 +47,7 @@ header {
 
 .explanations {
     margin: 2px 15px 0px 15px;
-    padding: 5px;
+    padding: 2px 5px;
     box-shadow: 0px 0px 2px 1px rgb(146, 146, 146);
     background-color: rgb(128, 128, 128);
     border-radius: 10px;
@@ -99,6 +99,17 @@ header {
     background-color: rgb(107, 225, 255);
 }
 
+.invalidInput {
+    display: inline;
+    margin: 2px auto 0px auto;
+    padding: 2px 5px;
+    border: 2px dashed red;
+    border-radius: 10px;
+    text-align: justify;
+    color: #790700;
+    font-size: 0.7em
+}
+
 footer {
     position: absolute;
     bottom: 0;
@@ -137,7 +148,7 @@ footer a:hover {
     }
 
     .explanations p {
-        padding: 5px;
+        padding: 2px 5px;
         box-shadow: 0px 0px 2px 1px rgb(124, 124, 124);
         background-color: rgb(128, 128, 128);
         border-radius: 10px;
@@ -150,6 +161,21 @@ footer a:hover {
     .input-box input {
         width: 0;
         flex-grow: 1;
+    }
+
+    .invalidInput {
+        padding: 2px 40px 0px 40px;
+        border: none;
+        margin-inline: auto;
+        max-width: 100%;
+    }
+
+    .invalidInput p {
+        padding: 2px 5px;;
+        border: 2px dashed red;
+        border-radius: 10px;
+        text-align: justify;
+        color: #790700;
     }
 }
 
@@ -166,6 +192,10 @@ footer a:hover {
 
     .input-box {
         padding-inline: 30px;
+    }
+
+    .invalidInput {
+        padding: 2px 90px 0px 90px;
     }
 
     .button {

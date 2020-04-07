@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -7,13 +8,15 @@
     <script src="logInScript.js"></script>
     <title>Sign in</title>
 </head>
+
 <body class="contaner">
 <?php
 $done = false;
 $user['username'] = $user['password'] = $user['passwordRep'] = $user['firstName'] = $user['lastName'] = $user['phoneNumber'] = $user['email'] = $user['birthDay'] = '""';
+$eRROR ["username"] = $eRROR ["phoneNumber"] = $eRROR ["email"] = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include_once('config.php');
     include_once('database.php');
+    include_once('config.php');
 
     echo "<script>InsertStyle();</script>";
     $user['username'] = test_input($_POST["username"]);
@@ -24,6 +27,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user['phoneNumber'] = test_input($_POST["phoneNumber"]);
     $user['email'] = test_input($_POST["email"]);
     $user['birthDay'] = test_input($_POST["birthDay"]);
+    ///open connection
+    $conn = ConnectionOpen($databaseServer, $databaseUsername, $databasePassword);
+    switch (NewUserAlreadyExists($conn, $user['username'], $user['phoneNumber'], $user['email'])) {
+        case 1:
+        {
+            $resp = AddNewUser(
+                $conn,
+                $user['username'],
+                $user['password'],
+                $user['firstName'],
+                $user['lastName'],
+                $user['phoneNumber'],
+                $user['email'],
+                $user['birthDay']
+            );
+            break;
+        }
+        case -1:
+        {
+            echo("error");
+            break;
+        }
+        case -2:
+        {
+            $eRROR ["username"] = "Username exists";
+            break;
+        }
+        case -3:
+        {
+            $eRROR ["phoneNumber"] = "Phone Number exists";
+            break;
+        }
+        case -4:
+        {
+            $eRROR ["email"] = "Email exists";
+            break;
+        }
+    }
+    ///close connection
+    ConnectionClose($conn);
 }
 ?>
 <header>
@@ -74,6 +117,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="username" name="username" id="username" value=<?php echo $user["username"]; ?> pattern="\w{5,}$"
                maxlength="25" required>
     </div>
+    <?php
+    if ($eRROR["username"] !== "") {
+        echo("<div class=\"invalidInput\"> <p>");
+        echo($eRROR["username"]);
+        echo("</p> </div>");
+    }
+    ?>
     <div class="explanations">
         <p>
             Must contain at least 8 or more characters.
@@ -108,15 +158,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="tel" name="phoneNumber" id="phoneNumber" value=<?php echo $user["phoneNumber"]; ?> maxlength="12"
                required>
     </div>
+    <?php
+    if ($eRROR["phoneNumber"] !== "") {
+        echo("<div class=\"invalidInput\"> <p>");
+        echo($eRROR["phoneNumber"]);
+        echo("</p> </div>");
+    }
+    ?>
     <div class="input-box">
         <p>Emale:</p>
         <input type="email" name="email" id="email" value=<?php echo $user["email"]; ?> required>
     </div>
+    <?php
+    if ($eRROR["email"] !== "") {
+        echo("<div class=\"invalidInput\"> <p>");
+        echo($eRROR["email"]);
+        echo("</p> </div>");
+    }
+    ?>
     <div class="input-box">
         <p>Day of Birth:</p>
         <input type="date" name="birthDay" id="birthDay"
-               value=<?php echo $user["birthDay"]; ?> onfocus="SetDateInputMax('birthDay')" min="1945-01-01"
-               required>
+               value=<?php echo $user["birthDay"]; ?> onfocus="SetDateInputMax('birthDay')" min="1945-01-01" required>
     </div>
     <button class="button" onclick="return formValidate('formSignIn')">submit</button>
 </form>
@@ -127,46 +190,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </footer>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = ConnectionOpen($databaseServer, $databaseUsername, $databasePassword);
-    switch (NewUserAlreadyExists($conn, $user['username'], $user['phoneNumber'], $user['email'])) {
-        case 1:
-        {
-            $resp = AddNewUser(
-                $conn,
-                $user['username'],
-                $user['password'],
-                $user['firstName'],
-                $user['lastName'],
-                $user['phoneNumber'],
-                $user['email'],
-                $user['birthDay']
-            );
-            break;
-        }
-        case -1:
-        {
-            echo("error");
-            break;
-        }
-        case -2:
-        {
-            echo("<script>InvalidInput('username', 'Username exists');f();</script>");
-            break;
-        }
-        case -3:
-        {
-            echo("<script> InvalidInput('phoneNumber', 'Phone Number exists');</script>");
-            break;
-        }
-        case -4:
-        {
-            echo("<script> InvalidInput('email', 'Email exists');</script>");
-            break;
-        }
-    }
-    ConnectionClose($conn);
+if ($eRROR["username"] !== "") {
+    echo("<script>InvalidInput('username', '" . $eRROR["username"] . "');</script>");
+}
+if ($eRROR["phoneNumber"] !== "") {
+    echo("<script>InvalidInput('phoneNumber', '" . $eRROR["phoneNumber"] . "');</script>");
+    $eRROR["phoneNumber"];
+}
+if ($eRROR["email"] !== "") {
+    echo("<script>InvalidInput('email', '" . $eRROR["email"] . "');</script>");
 }
 ?>
 </body>
+
 </html>
