@@ -35,7 +35,6 @@ function test_input($data)
 function NewUserAlreadyExists($conn, $username, $phoneNumber, $email)
 {
     try {
-        $t = 1 / 0;
         $sql = "SELECT EXISTS(
                 SELECT *
                 FROM loginproj.users
