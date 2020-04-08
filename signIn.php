@@ -1,24 +1,10 @@
-<!DOCTYPE html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="sign in style.css">
-    <script src="logInScript.js"></script>
-    <title>Sign in</title>
-</head>
-
-<body class="contaner">
 <?php
-$done = false;
 $user['username'] = $user['password'] = $user['passwordRep'] = $user['firstName'] = $user['lastName'] = $user['phoneNumber'] = $user['email'] = $user['birthDay'] = '""';
 $eRROR ["username"] = $eRROR ["phoneNumber"] = $eRROR ["email"] = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include_once('database.php');
-    include_once('config.php');
+    include_once('php functions/database.php');
+    include_once('php functions/config.php');
 
-    echo "<script>InsertStyle();</script>";
     $user['username'] = test_input($_POST["username"]);
     $user['password'] = password_hash(test_input($_POST["password"]), PASSWORD_ARGON2I);
     $user['passwordRep'] = $_POST["passwordRep"];
@@ -69,6 +55,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ConnectionClose($conn);
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/sign in style.css">
+    <script src="scripts/signInScript.js"></script>
+    <title>Sign in</title>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+        echo "<script>InsertStyle();</script>";
+    ?>
+</head>
+
+<body class="contaner">
 <header>
     <h1>Hi</h1>
     <h2>welcome</h2>
@@ -93,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </p>
     </div>
     <div class="input-box">
-        <p>First Name:</p>
+        <label for="firstName">First Name:</label>
         <input type="text" name="firstName" id="firstName" value=<?php echo $user["firstName"]; ?> pattern="[A-Za-z]+"
                maxlength="40" required>
     </div>
@@ -103,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </p>
     </div>
     <div class="input-box">
-        <p>Last Name:</p>
+        <label for="lastName">Last Name:</label>
         <input type="text" name="lastName" id="lastName" value=<?php echo $user["lastName"]; ?> pattern="[A-Za-z]+"
                maxlength="60" required>
     </div>
@@ -113,8 +115,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </p>
     </div>
     <div class="input-box">
-        <p>Usermame:</p>
-        <input type="username" name="username" id="username" value=<?php echo $user["username"]; ?> pattern="\w{5,}$"
+        <label for="username">Usermame:</label>
+        <input type="text" name="username" id="username" value=<?php echo $user["username"]; ?> pattern="\w{5,}$"
                maxlength="25" required>
     </div>
     <?php
@@ -130,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </p>
     </div>
     <div class="input-box">
-        <p>Password:</p>
+        <label for="password">Password:</label>
         <input type="password" name="password" id="password" value=<?php echo $user["passwordRep"]; ?> pattern="\w{8,}$"
                maxlength="30" required>
         <img src="images/Eye_48px.png" onclick="PasswordShow_Hide(this,'password')" alt="show"
@@ -142,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </p>
     </div>
     <div class="input-box">
-        <p>Password confirmation:</p>
+        <label for="passwordRep">Password confirmation:</label>
         <input type="password" name="passwordRep" id="passwordRep"
                value=<?php echo $user["passwordRep"]; ?> pattern="\w{8,}$" maxlength="30" required>
         <img src="images/Eye_48px.png" onclick="PasswordShow_Hide(this,'passwordRep')" alt="show"
@@ -154,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </p>
     </div>
     <div class="input-box">
-        <p>Phone Number:</p>
+        <label for="phoneNumber">Phone Number:</label>
         <input type="tel" name="phoneNumber" id="phoneNumber" value=<?php echo $user["phoneNumber"]; ?> maxlength="12"
                required>
     </div>
@@ -166,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     ?>
     <div class="input-box">
-        <p>Emale:</p>
+        <label for="email">Emale:</label>
         <input type="email" name="email" id="email" value=<?php echo $user["email"]; ?> required>
     </div>
     <?php
@@ -177,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     ?>
     <div class="input-box">
-        <p>Day of Birth:</p>
+        <label for="birthDay">Day of Birth:</label>
         <input type="date" name="birthDay" id="birthDay"
                value=<?php echo $user["birthDay"]; ?> onfocus="SetDateInputMax('birthDay')" min="1945-01-01" required>
     </div>
