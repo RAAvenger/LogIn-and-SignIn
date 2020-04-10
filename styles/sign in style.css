@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+body {
+    background-color: rgb(41, 41, 41);
+}
+
+/*mobile*/
+.contaner {
+    width: 100%;
+    position: absolute;
+    min-height: 100vh;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    height: 5rem;
+    width: 100%;
+    background: black;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 1.6em;
+    border-bottom: 4px solid;
+    border-image-source: radial-gradient(rgb(255, 255, 255), black);
+    border-image-slice: 1;
+}
+
+.form {
+    background: rgb(99, 99, 99);
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    margin: 5.6rem auto;
+    max-width: 300px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 6px 1px rgb(110, 110, 110);
+}
+
+.form .title {
+    margin: 10px auto;
+    font-size: 2em;
+}
+
+.explanations {
+    margin: 2px 15px 0 15px;
+    padding: 2px 5px;
+    box-shadow: 0 0 2px 1px rgb(146, 146, 146);
+    background-color: rgb(128, 128, 128);
+    border-radius: 10px;
+    text-align: justify;
+}
+
+.input-box {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 8px 8px 0 8px;
+}
+
+.input-box input {
+    background-color: rgb(65, 65, 65);
+    margin: 0;
+    width: 100%;
+    padding: 3px 7px;
+    border: none;
+    border-bottom: 3px solid rgb(198, 235, 223);
+    border-radius: 10px;
+    color: white;
+}
+
+.input-box input:focus {
+    border-bottom-color: rgb(136, 160, 152);
+}
+
+.input-box label {
+    margin: 0 0 2px 0;
+    min-width: 110px;
+}
+
+.button {
+    width: 70%;
+    height: 30px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(159, 236, 255);
+}
+
+.button:hover {
+    box-shadow: 0 0 3px 1px black;
+}
+
+.button:active {
+    background-color: rgb(107, 225, 255);
+}
+
+.invalidInput {
+    display: inline;
+    margin: 2px auto 0 auto;
+    padding: 2px 5px;
+    border: 2px dashed red;
+    border-radius: 10px;
+    text-align: justify;
+    color: #790700;
+    font-size: 0.7em
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 5rem;
+    width: 100%;
+    background: black;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+    border-top: 4px solid;
+    border-image-source: radial-gradient(rgb(255, 255, 255), black);
+    border-image-slice: 1;
+}
+
+footer a:link {
+    text-decoration: none;
+    color: rgb(253, 235, 152);
+}
+
+footer a:hover {
+    color: rgb(190, 169, 72);
+}
+
+/*tablet*/
+@media screen and (min-width: 480px) {
+    .form {
+        max-width: 500px;
+    }
+
+    .explanations {
+        padding: 2px 15px 0 15px;
+        box-shadow: none;
+        margin-inline: auto;
+        background-color: inherit;
+        max-width: 100%;
+    }
+
+    .explanations p {
+        padding: 2px 5px;
+        box-shadow: 0 0 2px 1px rgb(124, 124, 124);
+        background-color: rgb(128, 128, 128);
+        border-radius: 10px;
+    }
+
+    .input-box label {
+        width: 155px;
+    }
+
+    .input-box input {
+        width: 0;
+        flex-grow: 1;
+    }
+
+    .invalidInput {
+        padding: 2px 60px 0 60px;
+        border: none;
+        margin-inline: auto;
+        max-width: 100%;
+    }
+
+    .invalidInput p {
+        padding: 2px 5px;;
+        border: 2px dashed red;
+        border-radius: 10px;
+        text-align: justify;
+        color: #790700;
+    }
+}
+
+/*desktop*/
+@media screen and (min-width: 760px) {
+    .form {
+        margin-right: 5px;
+        max-width: 600px;
+    }
+
+    .input-box label {
+        width: 165px;
+    }
+
+    .input-box {
+        padding-inline: 30px;
+    }
+
+    .invalidInput {
+        padding: 2px 120px 0 120px;
+    }
+
+    .button {
+        width: 45%;
+        margin-right: 30px;
+    }
+
+}
