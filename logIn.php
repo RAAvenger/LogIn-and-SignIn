@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/log%20in%20style%20.css">
+    <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/logInScript.js"></script>
     <title>Log In</title>
     <?php
